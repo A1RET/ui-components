@@ -1,0 +1,38 @@
+@keyframes change_offset {
+  0% {
+    stroke-dashoffset: 231.25%;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes change_length {
+  0% {
+    stroke-dasharray: 62.5%, 168.75%;
+  }
+  50% {
+    stroke-dasharray: 187.5%, 43.75%;
+  }
+  100% {
+    stroke-dasharray: 62.5%, 168.75%;
+  }
+}
+
+.loader {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.loader__icon {
+  margin-top: -2px;
+  border-radius: 50%;
+  animation:
+    1s cubic-bezier(0.5, 0.2, 0.5, 0.8) 0s infinite normal none running
+      change_offset,
+    2s cubic-bezier(0.36, 0.14, 0.38, 0.69) 0s infinite normal none running
+      change_length,
+    2s linear 0s infinite normal none running rotate360;
+}
