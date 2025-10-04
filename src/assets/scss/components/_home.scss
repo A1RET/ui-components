@@ -1,0 +1,32 @@
+@use "../utils/vars" as *;
+@use "../utils/mixins/breakpoints" as *;
+@use "../utils/mixins/grids" as *;
+@use "../utils/mixins/elements" as *;
+
+.home {
+  --cols-count: 1;
+  @include grid-columns(2rem);
+  padding-top: $offset;
+  padding-bottom: $offset;
+}
+
+.home__item {
+  @include list(1rem, true);
+}
+
+.home__components {
+  @include horizontal_list(1rem);
+  align-items: center;
+}
+
+@include tablet {
+  .home {
+    --cols-count: 2;
+  }
+}
+
+@include desktop {
+  .home {
+    --cols-count: 3;
+  }
+}
