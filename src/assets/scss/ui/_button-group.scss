@@ -1,0 +1,53 @@
+@use "../utils/vars" as *;
+@use "../utils/mixins/breakpoints" as *;
+@use "../utils/functions" as *;
+
+.button-group {
+  display: inline-flex;
+}
+
+.button-group .button {
+  flex: auto;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 1px;
+    height: rem(24);
+    background-color: $gray-400;
+    opacity: 0.5;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  .button:disabled,
+  .button.button--disabled,
+  &:focus {
+    &::before {
+      background-color: $gray-400;
+    }
+  }
+
+  @include desktop {
+    &:hover {
+      &::before {
+        background-color: $gray-400;
+      }
+    }
+  }
+}
+
+.button-group .button:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  &::before {
+    content: "";
+  }
+}
+
+.button-group .button:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
