@@ -1,0 +1,77 @@
+@use "./utils/vars" as *;
+@use "./utils/mixins/breakpoints";
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+
+  --gray-100: #f5f5f5;
+  --gray-200: #ebebeb;
+  --gray-300: #cccccc;
+  --gray-400: #757575;
+  --gray-500: #676767;
+  --gray-600: #404040;
+  --gray-650: #535353;
+  --gray-700: #353536;
+  --gray-800: var(--black);
+
+  --gray-30080: rgba(137, 137, 137, 0.2);
+  --gray-70020: rgba(53, 53, 54, 0.2);
+  --gray-70094: rgba(53, 53, 54, 0.94);
+  --gray-70076: rgba(53, 53, 54, 0.76);
+
+  --white-10: rgba(255, 255, 255, 0.1);
+  --white-80: rgba(255, 255, 255, 0.8);
+
+  --red-200: #d04003;
+
+  --primary-color: var(--gray-700);
+
+  --border-radius: 2px;
+
+  --offset: 16px;
+
+  @include breakpoints.tablet() {
+    --offset: 40px;
+  }
+
+  @include breakpoints.desktop-m() {
+    --offset: 80px;
+  }
+}
+
+body {
+  font-family: $font-family-base;
+  color: $primary-color;
+  background-color: $white;
+}
+
+button,
+select,
+input,
+textarea {
+  color: $primary-color;
+  font-family: $font-family-base;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: #0000;
+}
+
+wbr {
+  display: inline-block;
+}
+
+iframe {
+  border: 0;
+}
