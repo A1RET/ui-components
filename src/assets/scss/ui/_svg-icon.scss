@@ -1,0 +1,27 @@
+@use "../utils/mixins/elements" as *;
+
+.svg-icon {
+  @include square(100%);
+  fill: none;
+  flex-shrink: 0;
+}
+
+.svg-icon--16 {
+  @include square(16px);
+}
+
+.svg-icon--20 {
+  @include square(20px);
+}
+
+.svg-icon--24 {
+  @include square(24px);
+}
+
+.svg-icon--28 {
+  @include square(28px);
+}
+
+.svg-icon--32 {
+  @include square(32px);
+}
