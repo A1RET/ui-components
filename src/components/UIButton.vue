@@ -35,26 +35,26 @@
 </template>
 
 <script setup lang="ts">
-import { useAttrs } from 'vue'
+import { useAttrs } from "vue";
 
-type Color = 'gray'
+type Color = "gray";
 
-import UILoader from '@/components/UILoader.vue'
+import UILoader from "@/components/UILoader.vue";
 
 defineProps<{
-    color?: Color
-    clear?: boolean
-    asLink?: boolean
-    size?: 's' | 'l'
-    label?: string
-    hideLabel?: boolean
-    narrow?: boolean | 's'
-    bordered?: boolean
-    transparent?: boolean
-    disabled?: boolean
-    isLoading?: boolean
-}>()
+    color?: Color;
+    clear?: boolean;
+    asLink?: boolean;
+    size?: "s" | "l";
+    label?: string;
+    hideLabel?: boolean;
+    narrow?: boolean | "s";
+    bordered?: boolean;
+    transparent?: boolean;
+    disabled?: boolean;
+    isLoading?: boolean;
+}>();
 
-const attrs = useAttrs()
-const tag = attrs.href ? 'a' : 'button'
+const attrs = useAttrs();
+const tag = attrs.href ? "a" : "button";
 </script>

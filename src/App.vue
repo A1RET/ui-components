@@ -25,8 +25,9 @@
             </section>
         </main>
     </div>
+    <div id="teleports"></div>
 </template>
 
 <script setup lang="ts">
-import UIButton from '@/components/UIButton.vue'
+import UIButton from "@/components/UIButton.vue";
 </script>
