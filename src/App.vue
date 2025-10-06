@@ -25,31 +25,69 @@
                 <div class="home__item">
                     <h2 class="h2">Popup</h2>
                     <div class="home__components">
-                        <div class="button-group">
-                            <UIButton @click="showPopup = true"> Button </UIButton>
-                            <UIPopup
-                                v-if="showPopup"
-                                v-model="showPopup"
-                                ref="popupRef"
-                                :bottom="isMobileOrTablet"
-                                class-name="demo-popup"
-                            >
-                                <template #header>
-                                    <h3 class="h3">Popup</h3>
-                                </template>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                                egestas, urna non tincidunt ultrices, lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Sed egestas, urna non tincidunt
-                                ultrices, lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Sed egestas, urna non tincidunt ultrices, lorem ipsum dolor sit
-                                amet, consectetur adipiscing elit. Sed egestas, urna non tincidunt
-                                ultrices, lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                <template #footer>
-                                    <UIButton @click="popupRef?.close"> Close </UIButton>
-                                </template>
-                            </UIPopup>
-                        </div>
+                        <UIButton @click="showPopup = true"> Button </UIButton>
+                        <UIPopup
+                            v-if="showPopup"
+                            v-model="showPopup"
+                            ref="popupRef"
+                            :bottom="isMobileOrTablet"
+                            class-name="demo-popup"
+                        >
+                            <template #header>
+                                <h3 class="h3">Popup</h3>
+                            </template>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas,
+                            urna non tincidunt ultrices, lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit. Sed egestas, urna non tincidunt ultrices, lorem ipsum
+                            dolor sit amet, consectetur adipiscing elit. Sed egestas, urna non
+                            tincidunt ultrices, lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Sed egestas, urna non tincidunt ultrices, lorem ipsum dolor sit
+                            amet, consectetur adipiscing elit.
+                            <template #footer>
+                                <UIButton @click="popupRef?.close"> Close </UIButton>
+                            </template>
+                        </UIPopup>
                     </div>
+                </div>
+                <div class="home__item">
+                    <h2 class="h2">Checkboxes</h2>
+                    <span>Options: {{ options }}</span>
+                    <div class="home__components">
+                        <UICheckboxesGroup
+                            v-model="checkboxesValue"
+                            :options="options"
+                            :is-column="true"
+                            control-class-name="demo-checkbox"
+                        />
+                    </div>
+                    <span>Selected values: {{ checkboxesValue }}</span>
+                </div>
+                <div class="home__item">
+                    <h2 class="h2">Checkboxes as chips</h2>
+                    <span>Options: {{ options }}</span>
+                    <div class="home__components">
+                        <UICheckboxesGroup
+                            v-model="checkboxesValue"
+                            :options="options"
+                            :is-column="true"
+                            is-chip
+                            control-class-name="demo-checkbox"
+                        />
+                    </div>
+                    <span>Selected values: {{ checkboxesValue }}</span>
+                </div>
+                <div class="home__item">
+                    <h2 class="h2">Radio</h2>
+                    <span>Options: {{ options }}</span>
+                    <div class="home__components">
+                        <UIRadioGroup
+                            v-model="radioValue"
+                            :options="options"
+                            :is-column="true"
+                            control-class-name="demo-checkbox"
+                        />
+                    </div>
+                    <span>Selected values: {{ radioValue }}</span>
                 </div>
             </section>
         </main>
@@ -64,9 +102,21 @@ import checkDevice from "@/utils/checkDevice";
 
 import UIButton from "@/components/UIButton.vue";
 import UIPopup from "@/components/UIPopup.vue";
+import UICheckboxesGroup from "@/components/UICheckboxesGroup.vue";
+import UIRadioGroup from "@/components/UIRadioGroup.vue";
 
 const { isMobileOrTablet } = checkDevice();
 
 const popupRef = ref<InstanceType<typeof UIPopup> | null>(null);
 const showPopup = ref<boolean>(false);
+
+const options: Array<{ [key: string]: string }> = [
+    { value: "1", label: "Option 1" },
+    { value: "2", label: "Option 2" },
+    { value: "3", label: "Option 3" },
+    { value: "4", label: "Option 4" },
+];
+
+const checkboxesValue = ref<Array<string | number | object>>([]);
+const radioValue = ref<string | number | { [key: string]: string }>(options[1]!);
 </script>
