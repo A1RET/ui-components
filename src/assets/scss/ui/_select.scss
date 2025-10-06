@@ -1,0 +1,145 @@
+@use "../utils/vars" as *;
+@use "../utils/mixins/elements" as *;
+@use "../utils/mixins/grids" as *;
+@use "../utils/mixins/breakpoints" as *;
+
+.select {
+  display: inline-flex;
+  position: relative;
+  width: auto;
+
+  &:focus-visible {
+    outline-color: $gray-300;
+    outline-offset: 2px;
+  }
+}
+
+.select__field {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  cursor: pointer;
+  background: white;
+}
+
+.select__field.active {
+  border-color: #06c;
+
+  .select__select-arrow {
+    transform: rotate(180deg);
+  }
+}
+
+.select__selected-values {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.select__field--centered {
+  justify-content: center;
+
+  .select__selected-values {
+    flex-grow: initial;
+  }
+}
+
+.select__multi-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.select__selected-tag {
+  background: $gray-100;
+  padding: 2px 8px;
+  border-radius: $border-radius;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.select__remove-tag {
+  cursor: pointer;
+  @include square(12px);
+}
+
+.select__placeholder {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: $gray-400;
+}
+
+.select__count {
+  display: inline-block;
+  @include square(16px);
+  background: $gray-400;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 16px;
+  color: $white;
+  text-align: center;
+}
+
+.select__placeholder--active {
+  color: inherit;
+}
+
+.select__select-arrow {
+  @include square(16px);
+  transition: transform 0.3s ease;
+}
+
+.select__options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  min-width: 320px;
+  margin-top: 4px;
+  background-color: $white;
+  padding: 8px;
+  box-shadow: $shadow-m;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  z-index: 11;
+}
+
+.select__options.right {
+  left: auto;
+  right: 0;
+}
+
+.select__options.up {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.select__options-list {
+  white-space: nowrap;
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+.select--transparent .select__field {
+  background-color: transparent;
+}
+
+.select--semibold .select__placeholder,
+.select--semibold .select__selected-value {
+  font-weight: $semibold;
+  color: $gray-700;
+}
+
+.select select:disabled ~ .select__field {
+  cursor: default;
+
+  .select__selected-values {
+    color: $gray-400;
+  }
+}

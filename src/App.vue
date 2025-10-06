@@ -89,6 +89,19 @@
                     </div>
                     <span>Selected values: {{ radioValue }}</span>
                 </div>
+                <div class="home__item">
+                    <h2 class="h2">Select</h2>
+                    <span>Options: {{ options }}</span>
+                    <div class="home__components">
+                        <UISelect
+                            v-model="selectValue"
+                            :options="options"
+                            multiple
+                            control-class-name="demo-checkbox"
+                        />
+                    </div>
+                    <span>Selected values: {{ selectValue }}</span>
+                </div>
             </section>
         </main>
     </div>
@@ -104,6 +117,7 @@ import UIButton from "@/components/UIButton.vue";
 import UIPopup from "@/components/UIPopup.vue";
 import UICheckboxesGroup from "@/components/UICheckboxesGroup.vue";
 import UIRadioGroup from "@/components/UIRadioGroup.vue";
+import UISelect from "@/components/UISelect.vue";
 
 const { isMobileOrTablet } = checkDevice();
 
@@ -119,4 +133,5 @@ const options: Array<{ [key: string]: string }> = [
 
 const checkboxesValue = ref<Array<string | number | object>>([]);
 const radioValue = ref<string | number | { [key: string]: string }>(options[1]!);
+const selectValue = ref<Array<string | number | object>>([]);
 </script>
