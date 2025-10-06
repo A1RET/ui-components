@@ -1,0 +1,8 @@
+@use "../utils/vars" as *;
+@use "../utils/mixins/breakpoints" as *;
+@use "../utils/mixins/elements" as *;
+@use "../utils/mixins/grids" as *;
+
+.demo-popup__content {
+  @include padding-h(16px);
+}

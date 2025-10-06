@@ -22,6 +22,35 @@
                         </div>
                     </div>
                 </div>
+                <div class="home__item">
+                    <h2 class="h2">Popup</h2>
+                    <div class="home__components">
+                        <div class="button-group">
+                            <UIButton @click="showPopup = true"> Button </UIButton>
+                            <UIPopup
+                                v-if="showPopup"
+                                v-model="showPopup"
+                                ref="popupRef"
+                                :bottom="isMobileOrTablet"
+                                class-name="demo-popup"
+                            >
+                                <template #header>
+                                    <h3 class="h3">Popup</h3>
+                                </template>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                egestas, urna non tincidunt ultrices, lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit. Sed egestas, urna non tincidunt
+                                ultrices, lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Sed egestas, urna non tincidunt ultrices, lorem ipsum dolor sit
+                                amet, consectetur adipiscing elit. Sed egestas, urna non tincidunt
+                                ultrices, lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                <template #footer>
+                                    <UIButton @click="popupRef?.close"> Close </UIButton>
+                                </template>
+                            </UIPopup>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
@@ -29,5 +58,15 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
+
+import checkDevice from "@/utils/checkDevice";
+
 import UIButton from "@/components/UIButton.vue";
+import UIPopup from "@/components/UIPopup.vue";
+
+const { isMobileOrTablet } = checkDevice();
+
+const popupRef = ref<InstanceType<typeof UIPopup> | null>(null);
+const showPopup = ref<boolean>(false);
 </script>
