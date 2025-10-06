@@ -1,32 +1,41 @@
-import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL } from "node:url";
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import vueDevTools from "vite-plugin-vue-devtools";
 
-import VitePluginSvgSpritemap from '@spiriit/vite-plugin-svg-spritemap'
+import VitePluginSvgSpritemap from "@spiriit/vite-plugin-svg-spritemap";
 
 // https://vite.dev/config/
 export default defineConfig({
     plugins: [
         vue(),
         vueDevTools(),
-        VitePluginSvgSpritemap('./src/assets/icons/**/*.svg', {
+        VitePluginSvgSpritemap("./src/assets/icons/**/*.svg", {
             styles: false,
             prefix: false,
-            route: 'sprite',
+            route: "sprite",
             svgo: {
-                plugins: ['preset-default', 'removeDimensions'],
+                plugins: ["preset-default", "removeDimensions"],
             },
             output: {
-                name: 'sprite.svg',
+                name: "sprite.svg",
                 view: false,
             },
+        }),
+        VitePluginSvgSpritemap("./src/assets/css-icons/**/*.svg", {
+            styles: "./src/assets/scss/utils/_svg-sprite.scss",
+            prefix: false,
+            route: "css_sprite",
+            svgo: {
+                plugins: ["preset-default", "removeDimensions"],
+            },
+            output: false,
         }),
     ],
     resolve: {
         alias: {
-            '@': fileURLToPath(new URL('./src', import.meta.url)),
+            "@": fileURLToPath(new URL("./src", import.meta.url)),
         },
     },
-})
+});
