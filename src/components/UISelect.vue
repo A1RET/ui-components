@@ -174,12 +174,7 @@
                 </div>
             </div>
             <template #footer>
-                <UIButton
-                    color="white"
-                    bordered
-                    class="select-popup__cancel-btn wide"
-                    @click="closePopup"
-                >
+                <UIButton bordered class="select-popup__cancel-btn wide" @click="closePopup">
                     Закрыть
                 </UIButton>
                 <UIButton

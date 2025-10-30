@@ -58,10 +58,10 @@ const imageSrcAttrs = computed(() => {
     }
 
     if (attrs.src) {
-        src = attrs.src;
+        src = attrs.src as string;
     }
     if (attrs.srcset) {
-        srcset = attrs.srcset;
+        srcset = attrs.srcset as string;
     }
 
     return {
