@@ -102,8 +102,6 @@ function toggle(index: number) {
 function calculateContentHeight(index: number) {
     const contentEl = innerRefs.value![index];
     if (contentEl) {
-        console.log(contentEl);
-        console.log(contentEl.scrollHeight);
         return contentEl.scrollHeight;
     } else {
         return 0;
