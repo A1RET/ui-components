@@ -102,6 +102,28 @@
                     </div>
                     <span>Selected values: {{ selectValue }}</span>
                 </div>
+                <div class="home__item">
+                    <h2 class="h2">Accordion</h2>
+                    <div class="home__components">
+                        <UIAccordion :items="accordionItems">
+                            <template #content="{ content }">
+                                <ul
+                                    v-if="Array.isArray(content)"
+                                    class="selections-lists__list"
+                                    style="margin: 0"
+                                >
+                                    <li
+                                        v-for="item in content as Array<AccordionContentItem>"
+                                        :key="item.value"
+                                        class="selections-lists__list-item"
+                                    >
+                                        {{ item.value }}
+                                    </li>
+                                </ul>
+                            </template>
+                        </UIAccordion>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
@@ -109,6 +131,10 @@
 </template>
 
 <script setup lang="ts">
+type AccordionContentItem = {
+    value: string;
+};
+
 import { ref } from "vue";
 
 import checkDevice from "@/utils/checkDevice";
@@ -118,6 +144,7 @@ import UIPopup from "@/components/UIPopup.vue";
 import UICheckboxesGroup from "@/components/UICheckboxesGroup.vue";
 import UIRadioGroup from "@/components/UIRadioGroup.vue";
 import UISelect from "@/components/UISelect.vue";
+import UIAccordion from "@/components/UIAccordion.vue";
 
 const { isMobileOrTablet } = checkDevice();
 
@@ -134,4 +161,13 @@ const options: Array<{ [key: string]: string }> = [
 const checkboxesValue = ref<Array<string | number | object>>([]);
 const radioValue = ref<string | number | { [key: string]: string }>(options[1]!);
 const selectValue = ref<Array<string | number | object>>([]);
+
+const accordionItems = ref<Array<{ title: string; content: Array<AccordionContentItem> }>>([
+    { title: "Title 1", content: [{ value: "Content 1.1" }, { value: "Content 1.2" }] },
+    { title: "Title 2", content: [{ value: "Content 2.1" }] },
+    {
+        title: "Title 3",
+        content: [{ value: "Content 3.1" }, { value: "Content 3.2" }, { value: "Content 3.2" }],
+    },
+]);
 </script>
