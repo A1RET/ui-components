@@ -124,6 +124,15 @@
                         </UIAccordion>
                     </div>
                 </div>
+                <div class="home__item">
+                    <h2 class="h2">Dropdown</h2>
+                    <div class="home__components">
+                        <UIDropdown>
+                            Click to open dropdown
+                            <template #content> Dropdown Content </template>
+                        </UIDropdown>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
@@ -145,6 +154,7 @@ import UICheckboxesGroup from "@/components/UICheckboxesGroup.vue";
 import UIRadioGroup from "@/components/UIRadioGroup.vue";
 import UISelect from "@/components/UISelect.vue";
 import UIAccordion from "@/components/UIAccordion.vue";
+import UIDropdown from "@/components/UIDropdown.vue";
 
 const { isMobileOrTablet } = checkDevice();
 

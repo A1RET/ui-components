@@ -1,0 +1,61 @@
+@use "../utils/vars" as *;
+@use "../utils/mixins/elements" as *;
+@use "../utils/mixins/grids" as *;
+@use "../utils/mixins/breakpoints" as *;
+
+.dropdown {
+  display: inline-flex;
+  position: relative;
+  width: auto;
+}
+
+.dropdown__inner {
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.dropdown__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding-top: 4px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  z-index: 5;
+}
+
+.dropdown__dropdown.right {
+  left: auto;
+  right: 0;
+}
+
+.dropdown__dropdown.up {
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.dropdown__dropdown-content {
+  background-color: $white;
+  padding: 8px;
+  box-shadow: $shadow-m;
+  min-width: 320px;
+}
+
+.dropdown__content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+
+.dropdown__content-header-title {
+  color: $gray-700;
+  font-weight: $semibold;
+}
+
+.dropdown__close {
+  color: $gray-700;
+  @include square(24px);
+}
