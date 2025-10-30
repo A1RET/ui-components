@@ -150,6 +150,12 @@
                         <TextInput is-number placeholder="Number" />
                     </div>
                 </div>
+                <div class="home__item">
+                    <h2 class="h2">Range input</h2>
+                    <div class="home__components">
+                        <RangeInput :max="100000" />
+                    </div>
+                </div>
             </section>
         </main>
     </div>
@@ -174,6 +180,7 @@ import UIAccordion from "@/components/UIAccordion.vue";
 import UIDropdown from "@/components/UIDropdown.vue";
 import UITooltip from "@/components/UITooltip.vue";
 import TextInput from "@/components/TextInput.vue";
+import RangeInput from "@/components/RangeInput.vue";
 
 const { isMobileOrTablet } = checkDevice();
 
