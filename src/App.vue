@@ -133,6 +133,15 @@
                         </UIDropdown>
                     </div>
                 </div>
+                <div class="home__item">
+                    <h2 class="h2">Tooltip</h2>
+                    <div class="home__components">
+                        <UITooltip>
+                            Hover to show tooltip
+                            <template #content> Tooltip Content </template>
+                        </UITooltip>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
@@ -155,6 +164,7 @@ import UIRadioGroup from "@/components/UIRadioGroup.vue";
 import UISelect from "@/components/UISelect.vue";
 import UIAccordion from "@/components/UIAccordion.vue";
 import UIDropdown from "@/components/UIDropdown.vue";
+import UITooltip from "@/components/UITooltip.vue";
 
 const { isMobileOrTablet } = checkDevice();
 
