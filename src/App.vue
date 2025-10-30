@@ -142,6 +142,14 @@
                         </UITooltip>
                     </div>
                 </div>
+                <div class="home__item">
+                    <h2 class="h2">Text input</h2>
+                    <div class="home__components">
+                        <TextInput placeholder="Text" />
+                        <TextInput type="tel" placeholder="Phone number" />
+                        <TextInput is-number placeholder="Number" />
+                    </div>
+                </div>
             </section>
         </main>
     </div>
@@ -165,6 +173,7 @@ import UISelect from "@/components/UISelect.vue";
 import UIAccordion from "@/components/UIAccordion.vue";
 import UIDropdown from "@/components/UIDropdown.vue";
 import UITooltip from "@/components/UITooltip.vue";
+import TextInput from "@/components/TextInput.vue";
 
 const { isMobileOrTablet } = checkDevice();
 
